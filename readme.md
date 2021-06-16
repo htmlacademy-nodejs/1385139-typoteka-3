@@ -1,7 +1,7 @@
 # Личный проект «Типотека» [![Build status][travis-image]][travis-url]
 
 * Студент: [Анастасия](https://up.htmlacademy.ru/nodejs/3/user/1385139).
-* Наставник: `Неизвестно`.
+* Наставник: [Roman Shesternin](https://htmlacademy.ru/profile/id1831979).
 
 ---
 
