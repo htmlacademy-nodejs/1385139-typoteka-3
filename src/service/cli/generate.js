@@ -66,7 +66,7 @@ const CATEGORIES = [
 const getRandomCategory = () => CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)];
 const getText = (sentencesCount) => (
   shuffle(SENTENCES)
-    .slice(MIN_SENTENCES_COUNT, getRandomInt(MIN_SENTENCES_COUNT + 1, sentencesCount))
+    .slice(MIN_SENTENCES_COUNT, getRandomInt(MIN_SENTENCES_COUNT + 1, sentencesCount - 1))
     .join(` `)
 );
 
@@ -84,7 +84,6 @@ const generatePublications = (count) => (
 module.exports = {
   name: `--generate`,
   run(args) {
-    console.log(args);
     const [count] = args;
     const countPublications = Number.parseInt(count, 10) || DEFAULT_PUBLICATIONS_COUNT;
 
