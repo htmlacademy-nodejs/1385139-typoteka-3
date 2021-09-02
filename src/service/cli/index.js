@@ -1,2 +1,4 @@
-const { cli } = require(`./src/service/cli`);
+'use strict';
+
+const {cli} = require(`./src/service/cli`);
 
