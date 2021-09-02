@@ -6,6 +6,10 @@ module.exports.getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+module.exports.getRandomDate = (startDate, endDate) => (
+  new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()))
+);
+
 // алгоритм тасования Фишера-Йетса
 
 module.exports.shuffle = (someArray) => {
