@@ -1,8 +1,8 @@
 'use strict';
 
 const fs = require(`fs`);
-const { ExitCode } = require(`../../const`);
-const { getRandomInt, getRandomDate, shuffle } = require(`../../utils`);
+const {ExitCode} = require(`../../const`);
+const {getRandomInt, getRandomDate, shuffle} = require(`../../utils`);
 
 const DEFAULT_PUBLICATIONS_COUNT = 1;
 const MAX_PUBLICATIONS_COUNT = 1000;
