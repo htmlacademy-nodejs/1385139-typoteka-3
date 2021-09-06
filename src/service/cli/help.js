@@ -22,6 +22,6 @@ ${commandsDescription}`;
 module.exports = {
   name: `--help`,
   run() {
-    console.info(chalk.blue(helpText));
+    console.info(chalk.gray(helpText));
   }
 };
