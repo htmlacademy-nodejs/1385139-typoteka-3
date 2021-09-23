@@ -53,7 +53,7 @@ module.exports = {
     const categories = await readContent(FILE_CATEGORIES_PATH);
 
     const [count] = args;
-    const countPublications = Number.parseInt(count, 10) || DEFAULT_PUBLICATIONS_COUNT;
+    const countPublications = parseInt(count, 10) || DEFAULT_PUBLICATIONS_COUNT;
 
     if (countPublications > MAX_PUBLICATIONS_COUNT) {
       console.info(chalk.red(`No more than ${MAX_PUBLICATIONS_COUNT} publications`));
