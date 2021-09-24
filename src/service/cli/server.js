@@ -2,7 +2,7 @@
 
 const chalk = require(`chalk`);
 const http = require(`http`);
-const { HttpCode } = require('../../const');
+const {HttpCode} = require(`../../const`);
 const fs = require(`fs`).promises;
 
 const DEFAULT_PORT = 3000;
@@ -23,7 +23,7 @@ const sendResponse = (res, statusCode, message) => {
   });
 
   res.end(template);
-}
+};
 
 const onClientConnect = async (req, res) => {
   const notFoundMessageText = `Not found`;
@@ -54,11 +54,11 @@ module.exports = {
 
     http.createServer(onClientConnect)
       .listen(port)
-      .on(`listening`, (err) => {
+      .on(`listening`, () => {
         console.info(chalk.green(`Ожидаю соединений на ${port}`));
       })
       .on(`error`, ({message}) => {
         console.error(chalk.red(`Ошибка при создании сервера: ${message}`));
       });
   }
-}
+};
