@@ -42,12 +42,31 @@
           <h2 class="popup__title">Регистрация</h2>
           <div class="popup__form popup__form--active form form--register">
             <form action="#" method="get">
-              <div class="form__field"><label><input type="email" name="email" placeholder="Электронная почта" required=""></label>
+              <div class="form__field">
+                <label>
+                  <input type="email" name="email" placeholder="Электронная почта" required="">
+                </label>
               </div>
-              <div class="form__field"><label><input type="text" name="name" placeholder="Имя" required=""></label></div>
-              <div class="form__field"><label><input type="text" name="surname" placeholder="Фамилия"></label></div>
-              <div class="form__field"><label><input type="password" name="password" placeholder="Пароль" required=""></label></div>
-              <div class="form__field"><label><input type="password" name="repeat-password" placeholder="Повтор пароля" required=""></label></div>
+              <div class="form__field">
+                <label>
+                  <input type="text" name="name" placeholder="Имя" required="">
+                </label>
+              </div>
+              <div class="form__field">
+                <label>
+                  <input type="text" name="surname" placeholder="Фамилия">
+                </label>
+              </div>
+              <div class="form__field">
+                <label>
+                  <input type="password" name="password" placeholder="Пароль" required="">
+                </label>
+              </div>
+              <div class="form__field">
+                <label>
+                  <input type="password" name="repeat-password" placeholder="Повтор пароля" required="">
+                </label>
+              </div>
               <div class="form__validation-error">
                 <p class="form__error-message">При регистрации произошли ошибки:</p>
                 <ul class="form__errors">
@@ -59,7 +78,10 @@
                 <a class="form__avatar avatar">
                   <img src="img/icons/smile.svg" alt="аватар пользователя">
                 </a>
-                <label><input type="file" name="upload" class="visually-hidden">Загрузить фото профиля</label>
+                <label>
+                  <input type="file" name="upload" class="visually-hidden">
+                  Загрузить фото профиля
+                </label>
               </div>
               <button class="form__submit-btn form__submit-btn--register button button--colored" type="submit">Зарегистрироваться</button>
             </form>
