@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  main.main-page
+    h1.visually-hidden Главная страница личного блога Типотека
+    p.main-page__greeting.title.title--big
+    section.main-page__theme-list
+      h2.visually-hidden Список тем
+      ul.themes
+        include partials/themes-item
+    .main-page__section-flex
+      section.main-page__hot.hot
+        h2.hot__name Самое обсуждаемое
+          span.hot__icon.hot__icon--fire
+        ul.hot__list
+          include partials/hot-list-item
+      section.main-page__last.last
+        h2.last__name Последние комментарии
+          span.last__icon.last__icon--cloud
+        ul.last__list
+          include partials/last-list-item
+    section.main-page__list.preview
+      h2.visually-hidden Список превью статей
+      ul.preview__list
+        include partials/preview-item
+    .preview__toggle-wrapper
+      include partials/pagination
