@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  main.main-page.main-page--padding
+    section.main-page__category.category
+      h1.category__title Категории
+      .category__add-form
+        form(action='#' method='POST')
+          input(type='text' name='add-category' id='add-form-add-category' placeholder='Новая категория')
+          label(for='add-form-add-category')
+            span.visually-hidden Добавить категорию
+          button.category__button.button.button--category(type='submit') Добавить
+      ul.category__list
+        include partials/category-list-item
