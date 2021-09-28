@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  main.articles-category
+    h1 Бизнес
+    section.articles-category__theme-list
+      h2.visually-hidden Список тем
+        ul.themes
+          include partials/themes-item
+    section.articles-category__list.preview
+      h2.visually-hidden Список превью статей
+      ul.preview__list
+        include partials/preview-item
