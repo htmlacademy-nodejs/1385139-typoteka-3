@@ -32,8 +32,8 @@ app.use((req, res) => res
   .render(`errors/500`));
 
 app.listen(
-  DEFAULT_PORT,
-  () => console.log(
-    chalk.bgGreen.blue(`listening for requests on port ${DEFAULT_PORT}`)
-  )
+    DEFAULT_PORT,
+    () => console.log(
+        chalk.bgGreen.blue(`listening for requests on port ${DEFAULT_PORT}`)
+    )
 );
