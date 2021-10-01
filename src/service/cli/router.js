@@ -8,7 +8,6 @@ const FILENAME = `mocks.json`;
 const router = new Router();
 
 router.get(`/posts`, async (req, res) => {
-  console.log('im here');
   try {
     const fileContent = await fs.readFile(FILENAME);
     const mocks = JSON.parse(fileContent.toString());
