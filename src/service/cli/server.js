@@ -3,27 +3,19 @@
 const express = require(`express`);
 const chalk = require(`chalk`);
 const {HttpCode} = require(`../../const`);
-const fs = require(`fs`).promises;
+const router = require(`./router`);
 
 const DEFAULT_PORT = 3000;
-const FILENAME = `mocks.json`;
 
 const app = express();
-app.use(express.json());
 
-app.get(`/posts`, async (req, res) => {
-  try {
-    const fileContent = await fs.readFile(FILENAME);
-    const mocks = JSON.parse(fileContent.toString());
-    res.json(mocks);
-  } catch (_err) {
-    res.send([]);
-  }
-});
+app.use(`/`, router);
 
 app.use((req, res) => res
   .status(HttpCode.NOT_FOUND)
   .send(`Not found`));
+
+app.use(express.json());
 
 module.exports = {
   name: `--server`,
