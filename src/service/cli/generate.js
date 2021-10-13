@@ -2,6 +2,7 @@
 
 const fs = require(`fs`).promises;
 const chalk = require(`chalk`);
+const { nanoid } = require(`nanoid`);
 const {ExitCode} = require(`../../const`);
 const {getRandomInt, getRandomDate, shuffle} = require(`../../utils`);
 
@@ -17,6 +18,7 @@ const MAX_FULL_TEXT_SENTENCES_COUNT = 15;
 const FILE_NAME = `mocks.json`;
 const START_DATE = new Date(2021, 0, 1);
 const END_DATE = new Date(2021, 6, 1);
+const MAX_ID_LENGTH = 6;
 
 const getRandomCategory = (categories) => categories[getRandomInt(0, categories.length - 1)];
 const getText = (sentencesCount, sentences) => (
@@ -28,6 +30,7 @@ const getText = (sentencesCount, sentences) => (
 const generatePublications = (count, titles, sentences, categories) => (
   Array(count).fill({}).map(() => ({
     title: titles[getRandomInt(0, titles.length - 1)],
+    id: nanoid(MAX_ID_LENGTH),
     createdDate: getRandomDate(START_DATE, END_DATE).toLocaleString(),
     announce: getText(MAX_ANNOUNCE_SENTENCES_COUNT, sentences),
     fullText: getText(MAX_FULL_TEXT_SENTENCES_COUNT, sentences),
