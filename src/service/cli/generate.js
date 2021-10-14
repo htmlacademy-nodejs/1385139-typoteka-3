@@ -3,7 +3,7 @@
 const fs = require(`fs`).promises;
 const chalk = require(`chalk`);
 const {nanoid} = require(`nanoid`);
-const {ExitCode} = require(`../../const`);
+const {ExitCode, MAX_ID_LENGTH} = require(`../../const`);
 const {getRandomInt, getRandomDate, shuffle} = require(`../../utils`);
 
 const FILE_TITLES_PATH = `./data/titles.txt`;
@@ -19,7 +19,6 @@ const MAX_FULL_TEXT_SENTENCES_COUNT = 15;
 const FILE_NAME = `mocks.json`;
 const START_DATE = new Date(2021, 0, 1);
 const END_DATE = new Date(2021, 6, 1);
-const MAX_ID_LENGTH = 6;
 const MAX_COMMENTS_AMOUNT = 5;
 const MIN_COMMENT_LENGTH = 20;
 const MAX_COMMENT_LENGTH = 250;
