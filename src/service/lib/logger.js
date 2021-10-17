@@ -4,7 +4,13 @@ const pino = require(`pino`);
 
 const logger = pino({
   name: `base-logger`,
-  label: `info`,
+  level: `info`,
+  transport: {
+    target: `pino-pretty`,
+    options: {
+      colorize: true
+    }
+  }
 });
 
 module.exports = {

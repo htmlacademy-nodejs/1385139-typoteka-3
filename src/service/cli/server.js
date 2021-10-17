@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require(`express`);
-const chalk = require(`chalk`);
 const {HttpCode, API_PREFIX} = require(`../../const`);
 const routes = require(`../api`);
 const {getLogger} = require(`../lib/logger`);
@@ -9,7 +8,7 @@ const {getLogger} = require(`../lib/logger`);
 const DEFAULT_PORT = 3000;
 
 const app = express();
-const logger = getLogger({name: `api`})
+const logger = getLogger({name: `api`});
 
 app.use(express.json());
 
