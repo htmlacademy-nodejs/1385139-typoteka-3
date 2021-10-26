@@ -63,7 +63,7 @@ module.exports = (app, articleService, commentService) => {
 
   route.delete(`/:articleId`, (req, res) => {
     const {articleId} = req.params;
-    const article = articleService.findOne(articleId);
+    const article = articleService.drop(articleId);
 
     if (!article) {
       return res
