@@ -2,7 +2,7 @@
 
 const express = require(`express`);
 const request = require(`supertest`);
-const {describe, expect, test, beforeAll} = require(`@jest/globals`);
+const {describe, expect, test} = require(`@jest/globals`);
 
 const search = require(`./search`);
 const DataService = require(`../data-service/search`);
@@ -163,33 +163,33 @@ const app = express();
 app.use(express.json());
 search(app, new DataService(mockData));
 
-describe(`API returns offer based on search query`, () => {
-  let response;
-
-  beforeAll(async () => {
-    response = await request(app)
+describe(`Search API works correctly`, () => {
+  test(`API returns offer based on search query`, async () => {
+    const response = await request(app)
       .get(`/search`)
       .query({
         query: `Обзор новейшего смартфона`
       });
+
+    await expect(response.statusCode).toBe(HttpCode.OK);
+    await expect(response.body.length).toBe(1);
+    await expect(response.body[0].id).toBe(`9MVky9`);
   });
 
-  test(`Status code 200`, () => expect(response.statusCode).toBe(HttpCode.OK));
-  test(`1 offer found`, () => expect(response.body.length).toBe(1));
-  test(`Offer has correct id`, () => expect(response.body[0].id).toBe(`9MVky9`));
+  test(`API returns code 404 if nothing is found`,
+      () => request(app)
+      .get(`/search`)
+      .query({
+        query: `Земля плоская и населена рептилоидами`
+      })
+      .expect(HttpCode.NOT_FOUND)
+  );
+
+  test(`API returns 400 when query string is absent`,
+      () => request(app)
+      .get(`/search`)
+      .expect(HttpCode.BAD_REQUEST)
+  );
 });
 
-test(`API returns code 404 if nothing is found`,
-    () => request(app)
-    .get(`/search`)
-    .query({
-      query: `Земля плоская и населена рептилоидами`
-    })
-    .expect(HttpCode.NOT_FOUND)
-);
 
-test(`API returns 400 when query string is absent`,
-    () => request(app)
-    .get(`/search`)
-    .expect(HttpCode.BAD_REQUEST)
-);

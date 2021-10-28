@@ -2,7 +2,7 @@
 
 const express = require(`express`);
 const request = require(`supertest`);
-const {describe, expect, test, beforeAll} = require(`@jest/globals`);
+const {expect, test} = require(`@jest/globals`);
 
 const categories = require(`./categories`);
 const DataService = require(`../data-service/category`);
@@ -176,13 +176,8 @@ const app = express();
 app.use(express.json());
 categories(app, new DataService(mockData));
 
-describe(`API returns category list`, () => {
-  let response;
-
-  beforeAll(async () => {
-    response = await request(app)
-      .get(`/categories`);
-  });
+test(`API returns category list`, async () => {
+  const response = await request(app).get(`/categories`);
 
   const expectedCategories = [
     `За жизнь`,
@@ -199,12 +194,7 @@ describe(`API returns category list`, () => {
     `Tips&Tricks`,
   ];
 
-  test(`Status code 200`, () => expect(response.statusCode).toBe(HttpCode.OK));
-  test(`Returns list of 12 categories`, () => expect(response.body.length).toBe(12));
-
-  test(`Category names are as expected`,
-      () => expect(response.body).toEqual(
-          expect.arrayContaining(expectedCategories)
-      )
-  );
+  await expect(response.statusCode).toBe(HttpCode.OK);
+  await expect(response.body.length).toBe(12);
+  await expect(response.body).toEqual(expect.arrayContaining(expectedCategories));
 });
